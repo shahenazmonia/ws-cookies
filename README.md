@@ -53,7 +53,7 @@ Cookies are useful as they allow us to store information about a client. As the 
 
 Here we are setting a very simple cookie with a key of `logged_in` and a value of `true`. It will do for now as we are focusing purely on how to transmit cookies, but in reality there are two problems.
 
-1. If you have multiple users, there is no way of telling the difference between them.
+1. If you have multiple users, there is no way of telling the difference between them. At that time you should set cookies by using the user unique information for example ```user_id```
 2. There is NO SECURITY in place. Cookies can very easily be edited in Devtools. For example, if you have a cookie of `admin=false`, it is very easy to change that to `admin=true`! The different ways to protect cookies from tampering will be in workshop 3...
 
 :star2: WARNING OVER :star2:
@@ -71,7 +71,8 @@ Flag | Description
 ---|---
 `HttpOnly` | This stops your cookie being accessed by the browser's Javascript (**including your own front-end code**). Without this flag, an attacker could intercept the user's cookies in a process known as Cross-Site Scripting (XSS). With the cookies of the legitimate user at hand, the attacker is able to act as the user in his/her interaction with a website - effectively identity theft.
 `Secure` | This means the cookie will only be set over a HTTPS connection. This prevents a man-in-the-middle attack.
-`Max-Age` | This sets the cookie lifetime in seconds.
+`Max-Age` | This sets the cookie lifetime in seconds,relative to the time the browser received the cookie. Here is an example of two Set-Cookie headers that were received from a website after a user logged in:First one, is set to expire sometime on 15 January 2019. It will be used by the client browser until that time.```HTTP/1.0 200 OK Set-Cookie: lu=Rg3vHJZnehYLjVg7qi3bZjzg; Expires=Tue, 15 Jan 2019 21:47:38 GMT; Path=/; Domain=.example.com; HttpOnly ``` The second cookie, does not have an expiration date, making it a session cookie. It will be deleted after the user closes their browse.```Set-Cookie:lu=Rg3vHJZnehYLjVg7qi3bZjzg; Path=/; Domain=.example.com``` 
+
 
 More flags can be found [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie).
 
@@ -139,11 +140,13 @@ You will see that `index.html` has three buttons, now you must implement the coo
 
 _Note: Click on the relevant button to check that you have implemented the cookie logic correctly_
 
+_Note: You should add new ```case 'mehothName/endPoint' ``` in ```route.js``` for each endPoint_
+
 Endpoint | Action
 ---|---
-`/login` | Should add a cookie and **redirect** to `/`
-`/logout` | Should remove the cookie and **redirect** to `/`
-`/auth_check` | Based on the validity of the cookie, should send back a 200 or 401 response, and an informative message!
+`/login` | Should add a cookie and **redirect** to `/`, then check if cookie was added
+`/logout` | Should remove the cookie and **redirect** to `/`, then check if cookie was removed
+`/auth_check` | Based on the validity of the cookie, should send back a 200 if your browser has cookie or 401 response if not, and an informative message with a response!
 
 
 ![Two Cookie](https://media.giphy.com/media/nqEztrBh06uti/giphy.gif)
