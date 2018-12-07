@@ -71,16 +71,7 @@ Flag | Description
 ---|---
 `HttpOnly` | This stops your cookie being accessed by the browser's Javascript (**including your own front-end code**). Without this flag, an attacker could intercept the user's cookies in a process known as Cross-Site Scripting (XSS). With the cookies of the legitimate user at hand, the attacker is able to act as the user in his/her interaction with a website - effectively identity theft.
 `Secure` | This means the cookie will only be set over a HTTPS connection. This prevents a man-in-the-middle attack.
-`Max-Age` | This sets the cookie lifetime in seconds, relative to the time the browser received the cookie.
- Here is an example of two Set-Cookie headers that were received from a website after a user logged in:
-```HTTP/1.0 200 OK
-Set-Cookie: lu=Rg3vHJZnehYLjVg7qi3bZjzg; Expires=Tue, 15 Jan 2019 21:47:38 GMT; Path=/; Domain=.example.com; HttpOnly
-```
- First one, is set to expire sometime on 15 January 2019. It will be used by the client browser until that time.
-
-```Set-Cookie:lu=Rg3vHJZnehYLjVg7qi3bZjzg; Path=/; Domain=.example.com
-```
-The second cookie, does not have an expiration date, making it a session cookie. It will be deleted after the user closes their browse.
+`Max-Age` | This sets the cookie lifetime in seconds,relative to the time the browser received the cookie. Here is an example of two Set-Cookie headers that were received from a website after a user logged in:```HTTP/1.0 200 OK Set-Cookie: lu=Rg3vHJZnehYLjVg7qi3bZjzg; Expires=Tue, 15 Jan 2019 21:47:38 GMT; Path=/; Domain=.example.com; HttpOnly ``` First one, is set to expire sometime on 15 January 2019. It will be used by the client browser until that time.```Set-Cookie:lu=Rg3vHJZnehYLjVg7qi3bZjzg; Path=/; Domain=.example.com``` The second cookie, does not have an expiration date, making it a session cookie. It will be deleted after the user closes their browse.
 
 
 More flags can be found [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie).
