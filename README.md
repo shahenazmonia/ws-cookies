@@ -151,12 +151,3 @@ Endpoint | Action
 
 
 ![Two Cookie](https://media.giphy.com/media/nqEztrBh06uti/giphy.gif)
-
----
-
-__BONUS 3rd PARTY TRACKING SECTION:__
-When you are on `foo.com`, requests to `foo.com` will not send your `bar.com` cookie to its server.
-
-BUT, the JavaScript on `foo.com` can make a request to any server. And if the JavaScript makes an AJAX request to `bar.com`, and you have an existing `bar.com` cookie, it can identify you, and collect any information that is currently available to the JavaScript.
-
-This means that every time you use a page that has 3rd party JavaScript running on it (Disqus comment box, Facebook comment box, random widget), this JavaScript has the capability to track you independently of the domain you are currently on. This can be disabled in some browsers by disabling 3rd party cookies.
