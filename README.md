@@ -141,7 +141,7 @@ You will see that `index.html` has three buttons, now you must implement the coo
 
 _Note: Click on the relevant button to check that you have implemented the cookie logic correctly_
 
-_Note: You should add new ```case 'mehothName /endPoint' ``` in ```route.js``` for each endPoint_
+_Note: You should add new `case 'method /endPoint'` in `route.js` for each endpoint e.g. `case 'GET /'`
 
 Endpoint | Action
 ---|---
