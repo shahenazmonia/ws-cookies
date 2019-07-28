@@ -1,6 +1,5 @@
 'use strict';
 
-const { parse } = require('url');
 const { readFile } = require('fs');
 
 const notFoundPage = '<p style="font-size: 10vh; text-align: center;">404!</p>';
