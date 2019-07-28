@@ -105,7 +105,7 @@ res.setHeader('Set-Cookie', 'logged_in=blah; Max-Age=0');
 
 You will see that `index.html` has three buttons, now you must implement the cookie logic on the server side:
 
-_Note: Click on the relevant button to check that you have implemented the cookie logic correctly. You should add new `case 'method /endPoint'` in `route.js` for each endpoint e.g. `case 'GET /'`
+_Note: Click on the relevant button to check that you have implemented the cookie logic correctly. You should add new `case 'method /endpoint'` in `route.js` for each endpoint e.g. `case 'GET /'`
 
 Endpoint | Action
 ---|---
